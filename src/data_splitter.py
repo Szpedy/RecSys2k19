@@ -13,14 +13,6 @@ def remove_duplicates(df):
     return df[~df['session_id'].isin(duplicated_sessions)]
 
 
-def is_session_id_duplicated(df):
-    df_first_step_for_sessions = df[df.step == 1]
-    df_user_sessions = df_first_step_for_sessions[['session_id', 'user_id']].compute()
-    unique_sessions = df_user_sessions['session_id'].nunique()
-    all_sessions = len(df_user_sessions)
-    return unique_sessions == all_sessions
-
-
 def split_data(df, ratio):
     sorted_session_ids = df[df.step == 1].sort_values('timestamp')['session_id']
     sliced = sorted_session_ids.head(int(len(sorted_session_ids) * ratio))
