@@ -3,7 +3,7 @@ from src.score_submission import score_subm
 from src.baseline_algorithm import rec_popular
 
 submission_file = '../data/submission_popular.csv'
-ground_truth_file = '../data/groundTruth.csv'
+ground_truth_file = '../data/gt.csv'
 test_file = '../data/test.csv'
 data_path = '../data'
 
